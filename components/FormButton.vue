@@ -1,5 +1,5 @@
 <template>
-  <button class="form-button" type="submit">
+  <button class="form-button btn btn-primary" type="submit">
     <slot></slot>
   </button>
 </template>
@@ -19,6 +19,6 @@ export default {
 
 <style lang="css" scoped>
 .form-button {
-  @apply block w-full bg-primary-500 text-white text-lg font-medium rounded p-3 mb-2;
+  @apply block w-full p-3 mb-2;
 }
 </style>

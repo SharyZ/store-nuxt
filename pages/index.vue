@@ -4,7 +4,7 @@
       <h1>Last Products</h1>
       <ProductsList :products="products" />
       <div class="my-4 flex justify-center">
-        <NuxtLink class="inline-block bg-primary-500 text-white text-lg font-medium rounded px-4 py-2" to="products">See all</NuxtLink>
+        <NuxtLink class="inline-block bg-primary-500 text-white text-lg font-medium rounded px-4 py-2" to="/products">See all</NuxtLink>
       </div>
     </section>
   </div>

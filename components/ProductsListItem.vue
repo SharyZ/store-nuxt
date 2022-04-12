@@ -7,7 +7,7 @@
       <p>{{ description }}</p>
     </div>
     <div class="products-list-item-footer">
-      <button class="border border-primary-500 text-primary-500 font-medium rounded py-1 px-2 hover:bg-primary-500 hover:text-white transition">Add to Cart</button>
+      <button class="btn btn-outline">Add to Cart</button>
       <h4>${{ price }}</h4>
     </div>
   </div>

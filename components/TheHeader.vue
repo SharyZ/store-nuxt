@@ -80,7 +80,7 @@ export default {
 .header-dropdown-button {}
 
 .header-dropdown-content {
-  @apply hidden absolute top-16 right-0 bg-slate-200 w-24 rounded shadow;
+  @apply hidden absolute top-12 right-0 bg-slate-200 w-24 rounded shadow;
 }
 
 .header-dropdown-content a {
