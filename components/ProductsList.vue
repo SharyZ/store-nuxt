@@ -1,14 +1,14 @@
 <template>
   <div class="products-list">
-    <ProductsListItem
-      v-for="product in products"
-      :key="product.id"
-      :imageUrl="product.imageUrl"
-      :category="product.category"
-      :name="product.name"
-      :description="product.description"
-      :price="product.price"
-    />
+    <div class="products-list-header">
+      <slot name="products-list-header"></slot>
+    </div>
+    <div class="products-list-grid">
+      <slot></slot>
+    </div>
+    <div class="products-list-footer">
+      <slot name="products-list-footer"></slot>
+    </div>
   </div>
 </template>
 
@@ -36,7 +36,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.products-list {
+.products-list-header {}
+
+.products-list-footer {
+  @apply my-4 flex justify-center;
+}
+
+.products-list-grid {
   @apply grid gap-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
 }
 </style>

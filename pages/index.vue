@@ -1,11 +1,23 @@
 <template>
   <div>
     <section class="my-2">
-      <h1>Last Products</h1>
-      <ProductsList :products="products" />
-      <div class="my-4 flex justify-center">
-        <NuxtLink class="inline-block bg-primary-500 text-white text-lg font-medium rounded px-4 py-2" to="/products">See all</NuxtLink>
-      </div>
+      <ProductsList>
+        <template #products-list-header>
+          <h1>Last Products</h1>
+        </template>
+        <ProductsListItem
+          v-for="product in products"
+          :key="product.id"
+          :imageUrl="product.imageUrl"
+          :category="product.category"
+          :name="product.name"
+          :description="product.description"
+          :price="product.price"
+        />
+        <template #products-list-footer>
+          <NuxtLink class="btn btn-primary px-6 py-2" to="/products">See all</NuxtLink>
+        </template>
+      </ProductsList>
     </section>
   </div>
 </template>
