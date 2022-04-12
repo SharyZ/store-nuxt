@@ -25,6 +25,8 @@ export default {
 
   name: "ForgotPasswordPage",
 
+  layout: "fullscreen",
+
   data () {
     return {
 
