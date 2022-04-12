@@ -31,4 +31,8 @@
   p {
     @apply mb-2;
   }
+
+  button {
+    @apply inline-block p-2 rounded focus:ring-primary-500 focus:ring-2;
+  }
 }

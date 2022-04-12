@@ -15,6 +15,10 @@ module.exports = {
         secondary: colors.sky,
       },
     },
+    container: {
+      center: true,
+      padding: '2rem',
+    },
   },
   plugins: [
     require("@tailwindcss/forms"),
