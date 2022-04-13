@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class="products-list-item" :to="`products/${id}`">
+  <NuxtLink class="products-list-item" :to="`/products/${id}`">
     <img :src="imageUrl" alt="product" />
     <div class="products-list-item-body">
       <h3>{{ category }}</h3>
