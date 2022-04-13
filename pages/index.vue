@@ -8,6 +8,7 @@
         <ProductsListItem
           v-for="product in products"
           :key="product.id"
+          :id="product.id"
           :imageUrl="product.imageUrl"
           :category="product.category"
           :name="product.name"

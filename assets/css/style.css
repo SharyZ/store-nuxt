@@ -45,4 +45,8 @@
   .btn-outline {
     @apply border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition;
   }
+
+  .btn-icon {
+    @apply flex items-center space-x-2;
+  }
 }

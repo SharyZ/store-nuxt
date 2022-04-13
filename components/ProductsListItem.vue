@@ -1,5 +1,5 @@
 <template>
-  <div class="products-list-item">
+  <NuxtLink class="products-list-item" :to="`products/${id}`">
     <img :src="imageUrl" alt="product" />
     <div class="products-list-item-body">
       <h3>{{ category }}</h3>
@@ -7,10 +7,10 @@
       <p>{{ description }}</p>
     </div>
     <div class="products-list-item-footer">
-      <button class="btn btn-outline">Add to Cart</button>
+      <button class="btn btn-outline" @click.prevent="">Add to Cart</button>
       <h4>${{ price }}</h4>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script>
@@ -19,6 +19,10 @@ export default {
   name: "ProductsListItem",
 
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     imageUrl: {
       type: String,
     },

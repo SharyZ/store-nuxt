@@ -29,7 +29,7 @@ export default {
 .products-list-header {}
 
 .products-list-footer {
-  @apply my-4 flex justify-center;
+  @apply my-4 flex justify-center space-x-4;
 }
 
 .products-list-grid {
