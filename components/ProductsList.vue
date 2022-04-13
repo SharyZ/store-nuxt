@@ -17,16 +17,6 @@ export default {
 
   name: "ProductsList",
 
-  props: {
-    products: {
-      type: Array,
-      required: true,
-      default() {
-        return []
-      }
-    }
-  },
-
   data () {
     return {
 
