@@ -3,8 +3,7 @@
     <NuxtLink
       v-for="category in categories"
       :key="category.id"
-      :to="{ to: 'CategoryPage', params: { slug: category.slug } }
-    ">
+      :to="`/categories/${category.slug}`">
       {{ category.name }}
     </NuxtLink>
   </nav>
