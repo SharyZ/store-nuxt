@@ -1,15 +1,15 @@
 <template>
   <div class="login-page">
-    <Form @submit.prevent="userLogin">
+    <Form @onSubmit="userLogin">
       <template #form-header>
         <LoginFormIcon class="mb-4" />
         <h2>Login to your account</h2>
       </template>
       <FormControl>
-        <FormLabel for="email">Email address</FormLabel>
-        <FormInput v-model="email" type="email" id="email" name="email" placeholder="Email" />
+        <FormLabel for="username">Username</FormLabel>
+        <FormInput v-model="username" type="text" id="username" name="username" placeholder="Username" />
         <FormInputError>
-          <p>Email is not correct.</p>
+          <p>Username is not correct.</p>
         </FormInputError>
       </FormControl>
       <FormControl>
@@ -39,10 +39,32 @@ export default {
 
   data () {
     return {
-      email: "",
+      username: "",
       password: "",
     }
-  }
+  },
+
+  methods: {
+    async userLogin() {
+      const { username, password } = this;
+
+      try {
+        let response = await this.$auth.loginWith("local", {
+          data: {
+            username,
+            password,
+          },
+        });
+        console.log(response)
+
+        const token = response.data.auth_token;
+
+        this.$auth.setUserToken(token);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
 }
 </script>
 
