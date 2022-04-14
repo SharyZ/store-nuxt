@@ -1,6 +1,6 @@
 <template>
   <div class="signup-page">
-    <Form @submit.prevent="userSignup">
+    <Form @onSubmit="userSignup">
       <template #form-header>
         <SignupFormIcon class="mb-4" />
         <h2>Create new account</h2>
@@ -48,13 +48,31 @@ export default {
       password: "",
     }
   },
+
   methods: {
     async userSignup() {
       const { username, email, password } = this;
 
-      alert(`Signup on process...`)
-    }
-  }
+      try {
+        await this.$axios.post("auth/users/", {
+          username,
+          email,
+          password,
+        });
+
+        await this.$auth.loginWith("local", {
+          data: {
+            username,
+            password,
+          },
+        });
+
+        this.$router.push("/");
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
 }
 </script>
 

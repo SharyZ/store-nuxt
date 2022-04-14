@@ -55,7 +55,6 @@ export default {
             password,
           },
         });
-        console.log(response)
 
         const token = response.data.auth_token;
 
