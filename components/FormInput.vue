@@ -1,5 +1,5 @@
 <template>
-  <input class="form-input" type="text" >
+  <input class="form-input" :value="value" @input="updateValue($event.target.value)" />
 </template>
 
 <script>
@@ -8,11 +8,14 @@ export default {
   name: "FormInput",
 
   props: {
-    type: {
+    value: {
       type: String,
-      default() {
-        return "text";
-      },
+    },
+  },
+
+  methods: {
+    updateValue(value) {
+      this.$emit("input", value);
     },
   },
 }
