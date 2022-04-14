@@ -12,7 +12,7 @@
           </button>
           <div class="header-dropdown-content group-hover:block">
             <NuxtLink to="/">Profile</NuxtLink>
-            <NuxtLink to="/">Logout</NuxtLink>
+            <NuxtLink to="" @click.native="logout">Logout</NuxtLink>
           </div>
         </div>
         <button @click="toggleMenu" class="lg:hidden">
@@ -58,8 +58,11 @@ export default {
   methods: {
     toggleMenu() {
       this.menuIsOpen = !this.menuIsOpen;
-    }
-  }
+    },
+    async logout() {
+      await this.$auth.logout();
+    },
+  },
 }
 </script>
 
