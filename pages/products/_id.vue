@@ -9,10 +9,10 @@
         />
       </div>
       <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-        <div class="mb-4">
+        <div class="mb-6 prose lg:prose-xl">
           <h1>{{ product.name }}</h1>
           <h2>Price: <span class="text-primary-500">${{product.price}}</span></h2>
-          <h3>Category: <NuxtLink :to="'/categories/' + product.category.slug">{{ product.category.name }}</NuxtLink></h3>
+          <h4>Category: <NuxtLink :to="'/categories/' + product.category.slug">{{ product.category.name }}</NuxtLink></h4>
           <p v-html="product.description"></p>
         </div>
         <div>
