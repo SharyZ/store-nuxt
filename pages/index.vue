@@ -6,7 +6,7 @@
           <h1>Last Products</h1>
         </template>
         <ProductsListItem
-          v-for="product in products"
+          v-for="product in lastProducts"
           :key="product.id"
           :id="product.id"
           :imageUrl="product.imageUrl"
@@ -29,43 +29,20 @@ export default {
 
   middleware: ["auth"],
 
+  async asyncData({ $axios }) {
+    const limit = 4;
+    const lastProducts = await $axios.$get(`products/?limit=${limit}`);
+
+    return {
+      lastProducts,
+    }
+  },
+
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 2,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 3,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 4,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-      ]
+
     }
   }
+
 }
 </script>

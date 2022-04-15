@@ -31,74 +31,17 @@ export default {
 
   name: "ProductsPage",
 
+  async asyncData({ $axios }) {
+    const products = await $axios.$get(`products/`);
+
+    return {
+      products,
+    }
+  },
+
   data () {
     return {
-      products: [
-        {
-          id: 1,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 2,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 3,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 4,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 1,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 2,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 3,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-        {
-          id: 4,
-          imageUrl: "https://fakeimg.pl/720x400/282828/eae0d0",
-          category: "Dishes",
-          name: "Pasta",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis doloremque facilis corporis!",
-          price: 25,
-        },
-      ]
+
     }
   }
 }

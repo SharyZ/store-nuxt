@@ -2,7 +2,9 @@
   <NuxtLink class="products-list-item" :to="`/products/${id}`">
     <img :src="imageUrl" alt="product" />
     <div class="products-list-item-body">
-      <h3>{{ category }}</h3>
+      <h3>
+        <NuxtLink :to="'/categories/' + category.slug">{{ category.name }}</NuxtLink>
+      </h3>
       <h2>{{ name }}</h2>
       <p>{{ description }}</p>
     </div>
@@ -36,7 +38,7 @@ export default {
       type: String,
     },
     category: {
-      type: String,
+      type: Object,
     },
     price: {
       type: Number,
@@ -65,15 +67,15 @@ export default {
 }
 
 .products-list-item-body h2 {
-  @apply text-lg font-medium text-gray-900 mb-3;
+  @apply font-medium text-gray-900 mb-3;
 }
 
 .products-list-item-body h3 {
-  @apply tracking-widest text-xs font-medium text-gray-400 mb-1;
+  @apply tracking-widest text-xs font-medium mb-1 bg-secondary-100 text-secondary-400 inline-block py-1 px-2 rounded-sm;
 }
 
 .products-list-item-body p {
-  @apply leading-relaxed mb-3 line-clamp-2;
+  @apply leading-relaxed mb-3 line-clamp-2 text-slate-700;
 }
 
 .products-list-item-footer {
