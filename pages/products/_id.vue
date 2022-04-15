@@ -28,6 +28,8 @@ export default {
 
   name: "ProductPage",
 
+  middleware: ["auth"],
+
   async asyncData({ params, $axios }) {
     const { id } = params;
     const product = await $axios.$get(`products/${id}`);

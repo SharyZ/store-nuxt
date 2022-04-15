@@ -25,6 +25,8 @@ export default {
 
   name: "ForgotPasswordPage",
 
+  middleware: ["isAuthenticated"],
+
   layout: "fullscreen",
 
   data () {

@@ -41,6 +41,8 @@ export default {
 
   layout: "fullscreen",
 
+  middleware: ["isAuthenticated"],
+
   data () {
     return {
       username: "",

@@ -9,6 +9,8 @@ export default {
 
   name: "CategoryPage",
 
+  middleware: ["auth"],
+
   async asyncData({ params, $axios }) {
     const { slug } = params;
     const category = await $axios.$get(`categories/${slug}`);

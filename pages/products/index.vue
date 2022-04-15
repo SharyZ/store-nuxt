@@ -31,6 +31,8 @@ export default {
 
   name: "ProductsPage",
 
+  middleware: ["auth"],
+
   async asyncData({ $axios }) {
     const products = await $axios.$get(`products/`);
 
