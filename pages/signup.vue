@@ -7,21 +7,21 @@
       </template>
       <FormControl>
         <FormLabel for="username">Username</FormLabel>
-        <FormInput v-model="username" type="text" id="username" name="username" placeholder="Username" />
+        <FormInput v-model="username" required type="text" id="username" name="username" placeholder="Username" />
         <FormInputError>
           <p>Username is not correct.</p>
         </FormInputError>
       </FormControl>
       <FormControl>
         <FormLabel for="email">Email address</FormLabel>
-        <FormInput v-model="email" type="email" id="email" name="email" placeholder="Email" />
+        <FormInput v-model="email" required type="email" id="email" name="email" placeholder="Email" />
         <FormInputError>
           <p>Email is not correct.</p>
         </FormInputError>
       </FormControl>
       <FormControl>
         <FormLabel for="password">Password</FormLabel>
-        <FormInput v-model="password" type="password" id="password" name="password" placeholder="Password" />
+        <FormInput v-model="password" required type="password" id="password" name="password" placeholder="Password" />
         <FormInputError>
           <p>Password must be more than 6 characters.</p>
         </FormInputError>
@@ -53,24 +53,29 @@ export default {
     async userSignup() {
       const { username, email, password } = this;
 
-      try {
-        await this.$axios.post("auth/users/", {
-          username,
-          email,
-          password,
-        });
-
-        await this.$auth.loginWith("local", {
+      await this.$axios.post("auth/users/", {
+        username,
+        email,
+        password,
+      }).then((response) => {
+        this.$auth.loginWith("local", {
           data: {
             username,
             password,
           },
         });
 
+        this.$toast.success("Account successfully created");
         this.$router.push("/");
-      } catch (error) {
-        console.error(error);
-      }
+      }).catch(({ response }) => {
+        const { data } = response;
+
+        if (data.username) {
+          this.$toast.error(data.username[0]);
+        } else {
+          this.$toast.error("Something went wrong when signup");
+        }
+      });
     },
   },
 }

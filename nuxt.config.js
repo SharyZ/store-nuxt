@@ -38,6 +38,10 @@ export default {
     "@nuxtjs/auth-next",
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
+    ["vue-toastification/nuxt", {
+      timeout: 4000,
+      draggable: false,
+    }],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
