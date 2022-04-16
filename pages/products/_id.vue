@@ -4,7 +4,7 @@
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
         <img
           class="object-cover object-center rounded w-full"
-          :src="product.image"
+          :src="product.image_url"
           :alt="product.name"
         />
       </div>

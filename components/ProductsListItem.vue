@@ -59,7 +59,7 @@ export default {
 }
 
 .products-list-item img {
-  @apply lg:h-48 md:h-36 w-full object-cover object-center;
+  @apply lg:h-48 md:h-36 w-full object-contain object-center;
 }
 
 .products-list-item-body {

@@ -9,7 +9,7 @@
           v-for="product in lastProducts"
           :key="product.id"
           :id="product.id"
-          :imageUrl="product.imageUrl"
+          :imageUrl="product.image_url"
           :category="product.category"
           :name="product.name"
           :description="product.description"
