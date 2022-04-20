@@ -6,6 +6,9 @@
       </NuxtLink>
       <TheHeaderNavigation :categories="categories" :class="{ hidden: menuIsOpen }" />
       <div class="flex items-center space-x-2">
+        <NuxtLink to="/cart">
+          <CartIcon />
+        </NuxtLink>
         <div class="header-dropdown group">
           <button class="header-dropdown-button">
             <img class="w-12 h-12 rounded-full" src="https://fakeimg.pl/64x64/282828/eae0d0/" alt="user" />
